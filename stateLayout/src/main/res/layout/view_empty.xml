@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/emptyImageView"
-            android:layout_width="76dp"
-            android:layout_height="76dp" />
+            android:layout_width="@dimen/drawable_size"
+            android:layout_height="@dimen/drawable_size" />
 
         <TextView
             android:id="@+id/emptyTextView"

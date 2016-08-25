@@ -15,8 +15,9 @@
         <ProgressBar
             android:id="@+id/progress_wheel"
             style="?attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="5dp" />
 
         <TextView
             android:id="@+id/progressTextView"
