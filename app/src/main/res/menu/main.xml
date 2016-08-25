@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/content"
+        android:orderInCategory="100"
+        android:title="content" />
+    <item
+        android:id="@+id/error"
+        android:orderInCategory="100"
+        android:title="error" />
+    <item
+        android:id="@+id/empty"
+        android:orderInCategory="100"
+        android:title="empty" />
+    <item
+        android:id="@+id/progress"
+        android:orderInCategory="100"
+        android:title="progress" />
+</menu>
