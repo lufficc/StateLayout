@@ -80,11 +80,37 @@ A custom layout that can easily switch different states(like empty,error,progres
 ```
 ## custom
 
+### attrs
+
 |    attr              |     for        |
 |----------------------|----------------|
 | app:errorDrawable  | custom the error drawable |
-| app:emptyDrawable | custom the error drawable        |
-| app:progressView | custom the error drawable        |
+| app:emptyDrawable | custom the empty drawable        |
+| app:progressView | custom your own progress view        |
+### listener
+``` java
+
+    setErrorAction(OnClickListener onErrorButtonClickListener); //set a callback called where error view is clicked,
+    // you can tetry load data,for example
+
+    etEmptyAction(OnClickListener onEmptyButtonClickListener); // //set a callback called where empty view is clicked
+
+```
+## Animation
+
+### you can custom your own animation by implements ViewAnimProvider interface
+### by default,there are two simple animations, `FadeViewAnimProvider` and ``FadeScaleViewAnimProvider
+
+``` java
+public interface ViewAnimProvider {
+    void onHideAndShow(@Nullable View willHide, @NonNull View willShow);
+}
+
+
+stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider()); //user it
+
+```
+
 
 # License
 	Copyright 2015 Miguel Catalan Bañuls
