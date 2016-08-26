@@ -1,24 +1,34 @@
-# MaterialSearchView
-Cute library to implement SearchView in a Material Design Approach. *Works from Android API 14 (ICS) and above*.
+# StateLayout
+A custom layout that can easily switch different states(like empty,error,progress,content) with animations.
 
-![sample](https://raw.githubusercontent.com/MiguelCatalan/MaterialSearchView/master/art/voice.gif) ![sample](https://raw.githubusercontent.com/MiguelCatalan/MaterialSearchView/master/art/default.gif)
+![sample](http://7xp8c8.com1.z0.glb.clouddn.com/state_layout.gif)
 
-<a href="https://play.google.com/store/apps/details?id=com.miguelcatalan.materialsearchview.sample">
-  <img alt="Get it on Google Play"
-       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
-</a>
-
-#Native version
-Maybe it would be useful to take a look into the new official approach
-http://www.materialdoc.com/search-filter/
 
 # Usage
 **Add the dependencies to your gradle file:**
-```javascript
+
+### gradle
+``` javascript
 	dependencies {
-    	compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    	compile 'com.lufficc:stateLayout:0.0.5'
 	}
 ```
+### maven
+``` xml
+	<dependency>
+      <groupId>com.lufficc</groupId>
+      <artifactId>stateLayout</artifactId>
+      <version>0.0.5</version>
+      <type>pom</type>
+    </dependency>
+```
+### Ivy
+``` xml
+	<dependency org='com.lufficc' name='stateLayout' rev='0.0.5'>
+      <artifact name='$AID' ext='pom'></artifact>
+    </dependency>
+```
+
 **Add MaterialSearchView to your layout file along with the Toolbar** *(Add this block at the bottom of your layout, in order to display it over the rest of the view)*:
 
 ```xml

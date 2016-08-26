@@ -4,7 +4,7 @@ publish {
     userOrg = 'lufficc' //你的用户名
     groupId = 'com.lufficc' //你的唯一的groupId，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3
     artifactId = 'stateLayout' //你的library的名字，对应com.squareup.okhttp3:okhttp:3.4.1中的okhttp
-    publishVersion = '0.0.3' //版本号
+    publishVersion = '0.0.5' //版本号
     desc = 'This is a demo library to teach how to publish you own library to jcenter with android studio.'
     website = 'http://lufficc.com/' //建议填写github地址，不过不影响，这里做演示填的自己的网址
 
