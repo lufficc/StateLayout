@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.lufficc.stateLayout.FadeScaleViewAnimProvider;
+import com.lufficc.stateLayout.FadeViewAnimProvider;
 import com.lufficc.stateLayout.StateLayout;
 
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         stateLayout = (StateLayout) findViewById(R.id.stateLayout);
-        stateLayout.setViewSwitchAnimProvider(new FadeScaleViewAnimProvider());
+        stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider());
     }
 
     @Override
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.fade:
-                stateLayout.setViewSwitchAnimProvider(new FadeScaleViewAnimProvider());
+                stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider());
                 break;
             case R.id.fade_scale:
                 stateLayout.setViewSwitchAnimProvider(new FadeScaleViewAnimProvider());
