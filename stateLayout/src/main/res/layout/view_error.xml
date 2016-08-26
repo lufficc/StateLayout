@@ -25,7 +25,7 @@
             android:padding="5dp"
             android:text="@string/error"
             android:textColor="#33475f"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
 
@@ -34,6 +34,6 @@
             android:padding="5dp"
             android:text="@string/retry"
             android:textColor="#727272"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
     </LinearLayout>
 </FrameLayout>

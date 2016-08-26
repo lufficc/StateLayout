@@ -27,6 +27,6 @@
             android:padding="5dp"
             android:text="@string/loading"
             android:textColor="#33475f"
-            android:textSize="10dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 </FrameLayout>
