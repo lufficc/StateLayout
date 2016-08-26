@@ -221,7 +221,6 @@ public class StateLayout extends FrameLayout {
     }
 
     public void showProgressView(String msg) {
-
         onHideContentView();
         if (msg != null)
             progressTextView.setText(msg);
