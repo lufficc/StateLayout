@@ -16,4 +16,15 @@
         android:id="@+id/progress"
         android:orderInCategory="100"
         android:title="progress" />
+
+    <item
+        android:id="@+id/fade"
+        android:orderInCategory="100"
+        android:title="anim fade" />
+
+    <item
+        android:id="@+id/fade_scale"
+        android:orderInCategory="100"
+        android:title="anim fade_scale" />
+
 </menu>

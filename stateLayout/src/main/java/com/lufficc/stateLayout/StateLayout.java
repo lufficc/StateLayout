@@ -37,6 +37,8 @@ public class StateLayout extends FrameLayout {
     private ImageView errorImageView;
     private ImageView emptyImageView;
 
+    private View currentShowingView;
+
 
     public StateLayout(Context context) {
         this(context, null);
@@ -138,21 +140,35 @@ public class StateLayout extends FrameLayout {
         return emptyImageView;
     }
 
-    private View currentShowingView;
+
+    public ViewAnimProvider getViewSwitchAnimProvider() {
+        return viewSwitchAnimProvider;
+    }
+
+    public void setViewSwitchAnimProvider(ViewAnimProvider viewSwitchAnimProvider) {
+        this.viewSwitchAnimProvider = viewSwitchAnimProvider;
+    }
+
+    private ViewAnimProvider viewSwitchAnimProvider;
 
     private void switchWithAnimation(final View toBeShown) {
         final View toBeHided = currentShowingView;
         if (toBeHided == toBeShown)
             return;
 
-        if (toBeHided != null) {
-            toBeHided.setVisibility(GONE);
+        if (viewSwitchAnimProvider != null) {
+            viewSwitchAnimProvider.onHideAndShow(toBeHided,toBeShown);
+            currentShowingView = toBeShown;
+        } else {
+            if (toBeHided != null) {
+                toBeHided.setVisibility(GONE);
+            }
+            if (toBeShown != null) {
+                currentShowingView = toBeShown;
+                toBeShown.setVisibility(VISIBLE);
+            }
         }
 
-        if (toBeShown != null) {
-            currentShowingView = toBeShown;
-            toBeShown.setVisibility(VISIBLE);
-        }
     }
 
     public void setEmptyContentViewMargin(int left, int top, int right, int bottom) {

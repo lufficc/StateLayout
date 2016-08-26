@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DemoStateLayout</string>
+    <string name="demo">Hello World! I am content view.</string>
 </resources>
