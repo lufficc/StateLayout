@@ -31,48 +31,52 @@ A custom layout that can easily switch different states(like empty,error,progres
     </dependency>
 ```
 
-**Add MaterialSearchView to your layout file along with the Toolbar** *(Add this block at the bottom of your layout, in order to display it over the rest of the view)*:
-
+**Add StateLayout to your layout file along with the Toolbar**
+# *Remember ,StateLayout can only one direct child* #
 ```xml
-    <!— Must be last for right layering display —>
-    <FrameLayout
-        android:id="@+id/toolbar_container"
+    <?xml version="1.0" encoding="utf-8"?>
+    <com.lufficc.stateLayout.StateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/stateLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.lcc.demo.statelayout.MainActivity">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/theme_primary" />
+            android:layout_height="match_parent">
+            <ImageView
+                android:padding="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/avatar" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:text="@string/demo" />
+        </FrameLayout>
+    </com.lufficc.stateLayout.StateLayout>
 
-        <com.miguelcatalan.materialsearchview.MaterialSearchView
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </FrameLayout>
 ```
 
-**Add the search item into the menu file:**
-```xml
-	<item
-        android:id="@+id/action_search"
-        android:icon="@drawable/ic_action_action_search"
-        android:orderInCategory="100"
-        android:title="@string/abc_search_hint"
-        app:showAsAction="always" />
-```
-**Add define it in the *onCreateOptionsMenu*:**
+** operation in java
 ```java
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        stateLayout.showErrorView(); //switch to error view
+        stateLayout.showErrorView(msg); //switch to error view with a message
 
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
+        stateLayout.showEmptyView();  //switch to empty view
+        stateLayout.showEmptyView(msg);  //switch to empty view with a message
 
-        return true;
-    }
+        stateLayout.showProgressView();  //switch to progress view
+        stateLayout.showProgressView(msg);  //switch to progress view with a message
+
+        stateLayout.showContentView();  //switch to your content view
 ```
 **Set the listeners:**
 ```java
