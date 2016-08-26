@@ -2,7 +2,7 @@
 A custom layout that can easily switch different states(like empty,error,progress,content) with animations.
 
 
-![gif](http://7xp8c8.com1.z0.glb.clouddn.com/state_layout.gif)
+![gif](pics/state_layout.gif)
 
 
 
