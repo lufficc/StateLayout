@@ -7,7 +7,7 @@ A custom layout that can easily switch different states(like empty,error,progres
 
 
 # Usage
-**Add the dependencies to your gradle project:**
+**Add the dependencies to your project:**
 
 ### gradle
 ``` javascript
@@ -98,8 +98,8 @@ A custom layout that can easily switch different states(like empty,error,progres
 ```
 ## Animation
 
-### you can custom your own animation by implements ViewAnimProvider interface
-### by default,there are two simple animations, `FadeViewAnimProvider` and ``FadeScaleViewAnimProvider
+### you can custom your own animation by implements ViewAnimProvider interface,
+### by default,there are two simple animations, `FadeViewAnimProvider` and `FadeScaleViewAnimProvider`
 
 ``` java
 public interface ViewAnimProvider {
@@ -110,7 +110,7 @@ public interface ViewAnimProvider {
 stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider()); //user it
 
 ```
-
+## if you find a bug or have good suggestion ,find me here [https://lufficc.com](https://lufficc.com)
 
 # License
 	Copyright 2015 Miguel Catalan Bañuls
