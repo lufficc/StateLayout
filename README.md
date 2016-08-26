@@ -80,7 +80,11 @@ A custom layout that can easily switch different states(like empty,error,progres
 ```
 ## custom
 
-
+|    attr              |     for        |
+|----------------------|----------------|
+| app:errorDrawable  | custom the error drawable |
+| app:emptyDrawable | custom the error drawable        |
+| app:progressView | custom the error drawable        |
 
 # License
 	Copyright 2015 Miguel Catalan Bañuls
