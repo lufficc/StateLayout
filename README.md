@@ -7,7 +7,7 @@ A custom layout that can easily switch different states(like empty,error,progres
 
 
 # Usage
-**Add the dependencies to your gradle file:**
+**Add the dependencies to your gradle project:**
 
 ### gradle
 ``` javascript
