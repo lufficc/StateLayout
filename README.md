@@ -113,7 +113,7 @@ stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider()); //user it
 ## if you find a bug or have good suggestion ,find me here [https://lufficc.com](https://lufficc.com)
 
 # License
-	Copyright 2015 Miguel Catalan Bañuls
+	Copyright 2016 Copyright 2016 lufficc
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
