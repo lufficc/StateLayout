@@ -4,6 +4,7 @@ A custom layout that can easily switch different states(like empty,error,progres
 
 ![gif](pics/state_layout.gif)
 
+### An example usage can be found here [lufficc/iShuiHui](https://github.com/lufficc/iShuiHui)
 
 
 # Usage
