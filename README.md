@@ -2,7 +2,7 @@
 A custom layout that can easily switch different states(like empty,error,progress,content) with animations.
 
 
-![gif](pics/state_layout.gif)
+![gif](pics/device-2016-08-30-174309.gif)
 
 ### An example usage can be found here [lufficc/iShuiHui](https://github.com/lufficc/iShuiHui)
 
@@ -81,6 +81,28 @@ A custom layout that can easily switch different states(like empty,error,progres
 ```
 ## custom
 
+
+## Animation
+
+### you can custom your own animation by implements ViewAnimProvider interface,
+### by default,there are two simple animations, `FadeViewAnimProvider` and `FadeScaleViewAnimProvider`
+
+``` java
+public interface ViewAnimProvider {
+    Animation showAnimation();
+
+    Animation hideAnimation();
+}
+
+//or
+
+stateLayout.setHideAnimation(yourAnimation);
+stateLayout.setShowAnimation(yourAnimation);
+
+stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider()); //user it
+```
+
+
 ### attrs
 
 |    attr              |     for        |
@@ -94,23 +116,10 @@ A custom layout that can easily switch different states(like empty,error,progres
     setErrorAction(OnClickListener onErrorButtonClickListener); //set a callback called where error view is clicked,
     // you can tetry load data,for example
 
-    etEmptyAction(OnClickListener onEmptyButtonClickListener); // //set a callback called where empty view is clicked
+    setEmptyAction(OnClickListener onEmptyButtonClickListener); // //set a callback called where empty view is clicked
 
 ```
-## Animation
 
-### you can custom your own animation by implements ViewAnimProvider interface,
-### by default,there are two simple animations, `FadeViewAnimProvider` and `FadeScaleViewAnimProvider`
-
-``` java
-public interface ViewAnimProvider {
-    void onHideAndShow(@Nullable View willHide, @NonNull View willShow);
-}
-
-
-stateLayout.setViewSwitchAnimProvider(new FadeViewAnimProvider()); //user it
-
-```
 ## if you find a bug or have good suggestion ,find me here [https://lufficc.com](https://lufficc.com)
 
 # License

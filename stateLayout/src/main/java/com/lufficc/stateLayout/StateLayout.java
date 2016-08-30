@@ -210,6 +210,7 @@ public class StateLayout extends FrameLayout {
                     toBeShown.setVisibility(VISIBLE);
                 currentShowingView = toBeShown;
                 if (showAnimation != null) {
+                    showAnimation.setFillAfter(false);
                     toBeShown.startAnimation(showAnimation);
                 }
             }
