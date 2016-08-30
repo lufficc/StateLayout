@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -140,25 +141,78 @@ public class StateLayout extends FrameLayout {
         return emptyImageView;
     }
 
-
-    public ViewAnimProvider getViewSwitchAnimProvider() {
-        return viewSwitchAnimProvider;
-    }
-
     public void setViewSwitchAnimProvider(ViewAnimProvider viewSwitchAnimProvider) {
-        this.viewSwitchAnimProvider = viewSwitchAnimProvider;
+        if (viewSwitchAnimProvider != null) {
+            this.showAnimation = viewSwitchAnimProvider.showAnimation();
+            this.hideAnimation = viewSwitchAnimProvider.hideAnimation();
+        }
     }
 
-    private ViewAnimProvider viewSwitchAnimProvider;
+
+    public boolean isShouldPlayAnim() {
+        return shouldPlayAnim;
+    }
+
+    public void setShouldPlayAnim(boolean shouldPlayAnim) {
+        this.shouldPlayAnim = shouldPlayAnim;
+    }
+
+    private boolean shouldPlayAnim = true;
+    private Animation hideAnimation;
+    private Animation showAnimation;
+
+    public Animation getShowAnimation() {
+        return showAnimation;
+    }
+
+    public void setShowAnimation(Animation showAnimation) {
+        this.showAnimation = showAnimation;
+    }
+
+    public Animation getHideAnimation() {
+        return hideAnimation;
+    }
+
+    public void setHideAnimation(Animation hideAnimation) {
+        this.hideAnimation = hideAnimation;
+    }
 
     private void switchWithAnimation(final View toBeShown) {
         final View toBeHided = currentShowingView;
         if (toBeHided == toBeShown)
             return;
+        if (shouldPlayAnim) {
+            if (toBeHided != null) {
+                if (hideAnimation != null) {
+                    hideAnimation.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
 
-        if (viewSwitchAnimProvider != null) {
-            viewSwitchAnimProvider.onHideAndShow(toBeHided,toBeShown);
-            currentShowingView = toBeShown;
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            toBeHided.setVisibility(GONE);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
+                    hideAnimation.setFillAfter(false);
+                    toBeHided.startAnimation(hideAnimation);
+                } else
+                    toBeHided.setVisibility(GONE);
+            }
+            if (toBeShown != null) {
+                if (toBeShown.getVisibility() != VISIBLE)
+                    toBeShown.setVisibility(VISIBLE);
+                currentShowingView = toBeShown;
+                if (showAnimation != null) {
+                    toBeShown.startAnimation(showAnimation);
+                }
+            }
         } else {
             if (toBeHided != null) {
                 toBeHided.setVisibility(GONE);

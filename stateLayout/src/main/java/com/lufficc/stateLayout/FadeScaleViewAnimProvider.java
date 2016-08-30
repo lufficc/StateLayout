@@ -1,52 +1,41 @@
 package com.lufficc.stateLayout;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.support.annotation.NonNull;
-import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.ScaleAnimation;
 
 /**
  * Created by lufficc on 2016/8/26.
  */
 
-public class FadeScaleViewAnimProvider implements ViewAnimProvider{
+public class FadeScaleViewAnimProvider implements ViewAnimProvider {
+
+    public Animation showAnimation() {
+        AnimationSet set = new AnimationSet(true);
+        Animation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+        Animation scaleAnimation = new ScaleAnimation(0.1f, 1f, 0.1f, 1f,Animation.RELATIVE_TO_SELF,
+                0.5f, Animation.RELATIVE_TO_SELF,0.5f);
+
+        set.setDuration(200);
+        set.setInterpolator(new DecelerateInterpolator());
+        set.addAnimation(alphaAnimation);
+        set.addAnimation(scaleAnimation);
+        return set;
+    }
+
     @Override
-    public void onHideAndShow(final View willHide,final @NonNull View willShow) {
-        if(willHide != null )
-        {
-            willHide.animate()
-                    .alpha(0)
-                    .scaleX(0.1f)
-                    .scaleY(0.1f)
-                    .setDuration(300)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            willHide.setVisibility(View.GONE);
-                        }
+    public Animation hideAnimation() {
+        AnimationSet set = new AnimationSet(true);
+        Animation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+        Animation scaleAnimation = new ScaleAnimation(1.0f, 0.1f, 1.0f, 0.1f,Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF,0.5f);
 
-                        @Override
-                        public void onAnimationCancel(Animator animation) {
-                            willHide.setVisibility(View.GONE);
-                        }
-                    });
-        }
-
-        willShow.animate()
-                .alpha(1)
-                .scaleX(1f)
-                .scaleY(1f)
-                .setDuration(300)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        willShow.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-                        willShow.setVisibility(View.VISIBLE);
-                    }
-                });
+        set.setDuration(200);
+        set.setInterpolator(new DecelerateInterpolator());
+        set.addAnimation(alphaAnimation);
+        set.addAnimation(scaleAnimation);
+        return set;
     }
 }
