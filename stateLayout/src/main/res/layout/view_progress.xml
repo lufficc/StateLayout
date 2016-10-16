@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/progress_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/progress_content"
+    <ProgressBar
+        android:id="@+id/progress_wheel"
+        style="?attr/progressBarStyle"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/progressTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ProgressBar
-            android:id="@+id/progress_wheel"
-            style="?attr/progressBarStyle"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:padding="5dp" />
-
-        <TextView
-            android:id="@+id/progressTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:text="@string/loading"
-            android:textColor="#33475f"
-            android:textSize="12sp" />
-    </LinearLayout>
-</FrameLayout>
+        android:padding="5dp"
+        android:text="@string/loading"
+        android:textColor="#33475f"
+        android:textSize="12sp" />
+</LinearLayout>
