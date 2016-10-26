@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -230,16 +231,16 @@ public class StateLayout extends FrameLayout {
     }
 
     public void setEmptyContentViewMargin(int left, int top, int right, int bottom) {
-        ((LayoutParams) emptyImageView.getLayoutParams()).setMargins(left, top, right, bottom);
+        ((LinearLayout.LayoutParams) emptyImageView.getLayoutParams()).setMargins(left, top, right, bottom);
     }
 
     public void setErrorContentViewMargin(int left, int top, int right, int bottom) {
-        ((LayoutParams) errorImageView.getLayoutParams()).setMargins(left, top, right, bottom);
+        ((LinearLayout.LayoutParams) errorImageView.getLayoutParams()).setMargins(left, top, right, bottom);
     }
 
     public void setProgressContentViewMargin(int left, int top, int right, int bottom) {
         if (progressBar != null)
-            ((LayoutParams) progressBar.getLayoutParams()).setMargins(left, top, right, bottom);
+            ((LinearLayout.LayoutParams) progressBar.getLayoutParams()).setMargins(left, top, right, bottom);
     }
 
     public void setInfoContentViewMargin(int left, int top, int right, int bottom) {
