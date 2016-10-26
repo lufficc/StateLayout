@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lcc.stateLayout.R;
@@ -37,6 +38,7 @@ public class StateLayout extends FrameLayout {
 
     private ImageView errorImageView;
     private ImageView emptyImageView;
+    private ProgressBar progressBar;
 
     private View currentShowingView;
 
@@ -89,6 +91,7 @@ public class StateLayout extends FrameLayout {
             progressView = inflater.inflate(progressViewId, this, false);
         } else {
             progressView = inflater.inflate(R.layout.view_progress, this, false);
+            progressBar = (ProgressBar) progressView.findViewById(R.id.progress_wheel);
             progressTextView = (TextView) progressView.findViewById(R.id.progressTextView);
             progressContentView = progressView.findViewById(R.id.progress_content);
         }
@@ -227,21 +230,22 @@ public class StateLayout extends FrameLayout {
     }
 
     public void setEmptyContentViewMargin(int left, int top, int right, int bottom) {
-        ((LayoutParams) emptyContentView.getLayoutParams()).setMargins(left, top, right, bottom);
+        ((LayoutParams) emptyImageView.getLayoutParams()).setMargins(left, top, right, bottom);
     }
 
     public void setErrorContentViewMargin(int left, int top, int right, int bottom) {
-        ((LayoutParams) errorContentView.getLayoutParams()).setMargins(left, top, right, bottom);
+        ((LayoutParams) errorImageView.getLayoutParams()).setMargins(left, top, right, bottom);
     }
 
     public void setProgressContentViewMargin(int left, int top, int right, int bottom) {
-        ((LayoutParams) progressContentView.getLayoutParams()).setMargins(left, top, right, bottom);
+        if (progressBar != null)
+            ((LayoutParams) progressBar.getLayoutParams()).setMargins(left, top, right, bottom);
     }
 
     public void setInfoContentViewMargin(int left, int top, int right, int bottom) {
-        ((LayoutParams) emptyContentView.getLayoutParams()).setMargins(left, top, right, bottom);
-        ((LayoutParams) errorContentView.getLayoutParams()).setMargins(left, top, right, bottom);
-        ((LayoutParams) progressContentView.getLayoutParams()).setMargins(left, top, right, bottom);
+        setEmptyContentViewMargin(left, top, right, bottom);
+        setErrorContentViewMargin(left, top, right, bottom);
+        setProgressContentViewMargin(left, top, right, bottom);
     }
 
 
