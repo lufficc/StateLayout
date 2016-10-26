@@ -13,7 +13,7 @@ A custom layout that can easily switch different states(like empty,error,progres
 ### gradle
 ``` javascript
 	dependencies {
-    	compile 'com.lufficc:stateLayout:0.0.8'
+    	compile 'com.lufficc:stateLayout:0.0.9'
 	}
 ```
 ### maven
@@ -21,7 +21,7 @@ A custom layout that can easily switch different states(like empty,error,progres
 	<dependency>
       <groupId>com.lufficc</groupId>
       <artifactId>stateLayout</artifactId>
-      <version>0.0.8</version>
+      <version>0.0.9</version>
       <type>pom</type>
     </dependency>
 ```
